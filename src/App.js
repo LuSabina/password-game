@@ -3,6 +3,7 @@ import "./App.css";
 import Heading from "./components/Heading";
 import Input from "./components/Input";
 import Condition from "./components/Condition";
+import requirements from "./components/Requirements";
 
 function App() {
   const [password, setPassword] = useState("");
@@ -11,7 +12,10 @@ function App() {
     <div className="App">
       <Heading />
       <Input input={password} setInput={setPassword} />
-      <Condition password={password} />
+
+      {requirements.map((condition, id) => {
+        return <Condition key={id} password={password} condition={condition} />;
+      })}
     </div>
   );
 }

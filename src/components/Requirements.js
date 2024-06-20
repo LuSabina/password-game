@@ -6,6 +6,8 @@ const requirements = [
     test: function (password) {
       if (password.length >= 6) {
         this.color = "green";
+      } else {
+        this.color = "red";
       }
     },
   },
@@ -17,6 +19,8 @@ const requirements = [
     test: function (password) {
       if (/\d/.test(password)) {
         this.color = "green";
+      } else {
+        this.color = "red";
       }
     },
   },
@@ -28,6 +32,8 @@ const requirements = [
     test: function (password) {
       if (/[A-Z]/.test(password)) {
         this.color = "green";
+      } else {
+        this.color = "red";
       }
     },
   },
