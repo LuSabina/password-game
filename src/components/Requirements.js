@@ -1,4 +1,4 @@
-const requirements = [
+export const requirements = [
   {
     id: 0,
     name: "At least 6 characters long",
@@ -39,4 +39,4 @@ const requirements = [
   },
 ];
 
-export default requirements;
+export const requirementsMet = [];
