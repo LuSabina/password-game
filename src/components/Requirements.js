@@ -38,5 +38,3 @@ export const requirements = [
     },
   },
 ];
-
-export const requirementsMet = [];
