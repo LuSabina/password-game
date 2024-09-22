@@ -5,11 +5,7 @@ function Condition({ password, condition }) {
 
   return (
     <>
-      <ul
-        className="heading"
-        style={{ color: condition.color }}
-        key={condition.id}
-      >
+      <ul style={{ color: condition.color, paddingLeft: 0 }} key={condition.id}>
         {condition.name}
       </ul>
     </>
