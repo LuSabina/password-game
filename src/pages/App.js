@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Heading from "../components/Heading";
+import React, { useState, useEffect } from "react";
+import NameHeading from "../components/NameHeading";
 
 import {
   Container,
@@ -14,12 +14,17 @@ import {
 import useStyles from "../styles";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Login from "../components/Login";
+import LoginInput from "../components/LoginInput";
 import { Link } from "react-router-dom";
 
 function App() {
-  const [name, setName] = useState("");
   const classes = useStyles();
+  const [name, setName] = useState(localStorage.getItem("name") || "");
+
+  useEffect(() => {
+    localStorage.setItem("name", name);
+  }, [name]);
+  console.log(localStorage.getItem("name"));
 
   return (
     <>
@@ -40,15 +45,14 @@ function App() {
       <main>
         <div>
           <Container align="center">
-            <Heading name={name} />
+            <NameHeading />
             <Stack sx={classes.stack} spacing={1}>
-              <Login setName={setName} />
+              <LoginInput setName={setName} />
 
               <Button
                 component={Link}
                 to="/game"
                 variant="contained"
-                href=""
                 sx={classes.subbutton}
               >
                 Submit

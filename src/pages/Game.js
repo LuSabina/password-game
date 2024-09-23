@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Heading from "../components/Heading";
+import PasswordHeading from "../components/PasswordHeading";
 import Input from "../components/Input";
 import Condition from "../components/Condition";
 import { requirements } from "../components/Requirements";
@@ -11,6 +11,7 @@ import {
   Typography,
   CssBaseline,
   IconButton,
+  Button,
 } from "@mui/material";
 import useStyles from "../styles";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -21,7 +22,6 @@ let doSort = false;
 function Game() {
   const [password, setPassword] = useState("");
   const [require, setRequire] = useState([]);
-  const [name, setName] = useState("");
   const classes = useStyles();
 
   function changeState(updatedPassword) {
@@ -74,12 +74,11 @@ function Game() {
       <main>
         <div>
           <Container align="center">
-            <Heading name={name} />
+            <PasswordHeading />
             <Input
               input={password}
               setInput={setPassword}
               updateState={changeState}
-              setName={setName}
             />
 
             {require.map((condition, id) => {
@@ -90,6 +89,9 @@ function Game() {
               );
             })}
           </Container>
+          {/* <Button>
+
+          </Button> */}
         </div>
       </main>
     </>

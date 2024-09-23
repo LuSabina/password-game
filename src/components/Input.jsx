@@ -2,7 +2,7 @@ import React from "react";
 import useStyles from "../styles";
 import { TextField } from "@mui/material";
 
-function Input({ input, setInput, updateState, setName }) {
+function Input({ input, setInput, updateState }) {
   const classes = useStyles();
 
   function handleChange(event) {
