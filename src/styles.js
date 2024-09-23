@@ -45,15 +45,6 @@ const useStyles = () => ({
     width: "15%",
     color: "black",
   },
-
-  //   ifgreen: {
-  //     color: "#1A5319",
-  //     backgroundColor: "#80AF81",
-  //   },
-  //   ifred: {
-  //     color: "#A91D3A",
-  //     backgroundColor: "#C73659",
-  //   },
 });
 
 export default useStyles;
