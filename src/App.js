@@ -11,16 +11,18 @@ import {
   Toolbar,
   Typography,
   CssBaseline,
+  IconButton,
 } from "@mui/material";
 import useStyles from "./styles";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import LockIcon from "@mui/icons-material/Lock";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
 let doSort = false;
 
 function App() {
   const [password, setPassword] = useState("");
   const [require, setRequire] = useState([]);
+  const [name, setName] = useState("");
   const classes = useStyles();
 
   function changeState(updatedPassword) {
@@ -59,29 +61,32 @@ function App() {
       <CssBaseline />
       <AppBar position="static" sx={classes.appname}>
         <Toolbar>
-          <LockIcon />
-          <Typography sx={classes.toolbartext}>PasswordApp</Typography>
-          <GitHubIcon sx={{ marginLeft: "auto" }} />
+          <LockOutlinedIcon />
+          <Typography sx={classes.toolbartext}>PasswordGame</Typography>
+          <IconButton
+            sx={{ marginLeft: "auto" }}
+            href="https://github.com/sabinaLukaszczyk/password-game"
+            target="_blank"
+          >
+            <GitHubIcon sx={{ color: "white" }} />
+          </IconButton>
         </Toolbar>
       </AppBar>
       <main>
         <div>
           <Container align="center">
-            <Heading />
+            <Heading name={name} />
             <Input
               input={password}
               setInput={setPassword}
               updateState={changeState}
+              setName={setName}
             />
 
             {require.map((condition, id) => {
               return (
-                <Box sx={classes.condition}>
-                  <Condition
-                    key={id}
-                    password={password}
-                    condition={condition}
-                  />
+                <Box sx={classes.condition} key={id}>
+                  <Condition password={password} condition={condition} />
                 </Box>
               );
             })}

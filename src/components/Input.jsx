@@ -2,18 +2,21 @@ import React from "react";
 import useStyles from "../styles";
 import { TextField, Stack } from "@mui/material";
 
-function Input({ input, setInput, updateState }) {
+function Input({ input, setInput, updateState, setName }) {
   const classes = useStyles();
 
   function handleChange(event) {
     setInput(event.target.value);
     updateState(event.target.value);
   }
+  function assignName(event) {
+    return setName(event.target.value);
+  }
 
   return (
     <Stack spacing={1} sx={classes.stack}>
       <TextField
-        //onChange={handleChange}
+        onChange={assignName}
         //value={input}
         sx={classes.input}
         variant="outlined"
