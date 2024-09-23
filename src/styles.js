@@ -43,6 +43,7 @@ const useStyles = () => ({
   },
   subbutton: {
     width: "15%",
+    color: "black",
   },
 
   //   ifgreen: {
