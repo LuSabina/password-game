@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "../App.css";
 import Heading from "../components/Heading";
 import Input from "../components/Input";
 import Condition from "../components/Condition";
