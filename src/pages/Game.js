@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
-import Heading from "./components/Heading";
-import Input from "./components/Input";
-import Condition from "./components/Condition";
-import { requirements } from "./components/Requirements";
+import "../App.css";
+import Heading from "../components/Heading";
+import Input from "../components/Input";
+import Condition from "../components/Condition";
+import { requirements } from "../components/Requirements";
 import {
   Container,
   Box,
@@ -13,13 +13,13 @@ import {
   CssBaseline,
   IconButton,
 } from "@mui/material";
-import useStyles from "./styles";
+import useStyles from "../styles";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
 let doSort = false;
 
-function App() {
+function Game() {
   const [password, setPassword] = useState("");
   const [require, setRequire] = useState([]);
   const [name, setName] = useState("");
@@ -97,4 +97,4 @@ function App() {
   );
 }
 
-export default App;
+export default Game;

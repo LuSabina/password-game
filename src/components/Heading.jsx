@@ -5,7 +5,7 @@ import useStyles from "../styles";
 function Heading({ name }) {
   const classes = useStyles();
   return (
-    <Typography variant="h2" sx={classes.heading}>
+    <Typography variant="h3" sx={classes.heading}>
       Hello {name}
     </Typography>
   );

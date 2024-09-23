@@ -1,6 +1,6 @@
 const useStyles = () => ({
   appname: {
-    position: "relative",
+    //position: "relative",
     height: "40px",
     justifyContent: "center",
   },
@@ -16,7 +16,7 @@ const useStyles = () => ({
   },
 
   stack: {
-    width: "50%",
+    alignItems: "center",
   },
 
   heading: {
@@ -38,14 +38,21 @@ const useStyles = () => ({
     fontFamily: "Raleway",
     caretColor: "transparent",
   },
-  ifgreen: {
-    color: "#1A5319",
-    backgroundColor: "#80AF81",
+  inputName: {
+    width: "30%",
   },
-  ifred: {
-    color: "#A91D3A",
-    backgroundColor: "#C73659",
+  subbutton: {
+    width: "15%",
   },
+
+  //   ifgreen: {
+  //     color: "#1A5319",
+  //     backgroundColor: "#80AF81",
+  //   },
+  //   ifred: {
+  //     color: "#A91D3A",
+  //     backgroundColor: "#C73659",
+  //   },
 });
 
 export default useStyles;
