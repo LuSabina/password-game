@@ -8,7 +8,6 @@ import {
   Box,
   AppBar,
   Toolbar,
-  Typography,
   CssBaseline,
   IconButton,
   Button,
@@ -16,7 +15,6 @@ import {
 import useStyles from "../styles";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import { Link } from "react-router-dom";
 
 let doSort = false;
 
@@ -71,8 +69,6 @@ function Game() {
             onClick={handleReload}
             variant="text"
             sx={classes.toolbartext}
-            // component={Link}
-            // to="/"
           >
             PasswordGame
           </Button>
@@ -103,9 +99,6 @@ function Game() {
               );
             })}
           </Container>
-          {/* <Button>
-
-          </Button> */}
         </div>
       </main>
     </>

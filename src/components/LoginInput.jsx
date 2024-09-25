@@ -19,6 +19,7 @@ function Login({ setName }) {
       size="small"
       autoComplete="off"
       color="#9e9e9e"
+      defaultValue={localStorage.getItem("name")}
     />
   );
 }

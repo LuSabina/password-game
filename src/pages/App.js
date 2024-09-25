@@ -20,10 +20,28 @@ import { Link } from "react-router-dom";
 function App() {
   const classes = useStyles();
   const [name, setName] = useState(localStorage.getItem("name") || "");
+  let validName = name.trim();
 
   useEffect(() => {
     localStorage.setItem("name", name);
   }, [name]);
+
+  function renderButton() {
+    if (validName.length < 2) {
+      return <Button disabled>Submit</Button>;
+    } else {
+      return (
+        <Button
+          component={Link}
+          to="/game"
+          variant="contained"
+          sx={classes.subbutton}
+        >
+          Submit
+        </Button>
+      );
+    }
+  }
 
   return (
     <>
@@ -31,9 +49,7 @@ function App() {
       <AppBar position="static" sx={classes.appname}>
         <Toolbar>
           <LockOutlinedIcon />
-          <Button variant="text" sx={classes.toolbartext}>
-            PasswordGame
-          </Button>
+          <Typography sx={classes.toolbartext}>PasswordGame</Typography>
           <IconButton
             sx={{ marginLeft: "auto" }}
             href="https://github.com/sabinaLukaszczyk/password-game"
@@ -49,15 +65,7 @@ function App() {
             <NameHeading />
             <Stack sx={classes.stack} spacing={1}>
               <LoginInput setName={setName} />
-
-              <Button
-                component={Link}
-                to="/game"
-                variant="contained"
-                sx={classes.subbutton}
-              >
-                Submit
-              </Button>
+              {renderButton()}
             </Stack>
           </Container>
         </div>
