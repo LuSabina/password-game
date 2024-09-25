@@ -16,6 +16,7 @@ import {
 import useStyles from "../styles";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import { Link } from "react-router-dom";
 
 let doSort = false;
 
@@ -30,6 +31,11 @@ function Game() {
       const firstCondition = requirements.shift();
       setRequire([firstCondition]);
     }
+  }
+
+  function handleReload() {
+    localStorage.clear();
+    window.location.replace("/");
   }
 
   useEffect(() => {
@@ -61,7 +67,15 @@ function Game() {
       <AppBar position="static" sx={classes.appname}>
         <Toolbar>
           <LockOutlinedIcon />
-          <Typography sx={classes.toolbartext}>PasswordGame</Typography>
+          <Button
+            onClick={handleReload}
+            variant="text"
+            sx={classes.toolbartext}
+            // component={Link}
+            // to="/"
+          >
+            PasswordGame
+          </Button>
           <IconButton
             sx={{ marginLeft: "auto" }}
             href="https://github.com/sabinaLukaszczyk/password-game"

@@ -24,7 +24,6 @@ function App() {
   useEffect(() => {
     localStorage.setItem("name", name);
   }, [name]);
-  console.log(localStorage.getItem("name"));
 
   return (
     <>
@@ -32,7 +31,9 @@ function App() {
       <AppBar position="static" sx={classes.appname}>
         <Toolbar>
           <LockOutlinedIcon />
-          <Typography sx={classes.toolbartext}>PasswordGame</Typography>
+          <Button variant="text" sx={classes.toolbartext}>
+            PasswordGame
+          </Button>
           <IconButton
             sx={{ marginLeft: "auto" }}
             href="https://github.com/sabinaLukaszczyk/password-game"

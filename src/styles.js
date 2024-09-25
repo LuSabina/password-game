@@ -8,6 +8,8 @@ const useStyles = () => ({
     fontFamily: "Raleway",
     fontSize: "15px",
     caretColor: "transparent",
+    color: "white",
+    textTransform: "lowercase",
   },
 
   icon: {
