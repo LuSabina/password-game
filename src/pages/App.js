@@ -15,16 +15,29 @@ import useStyles from "../styles";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import LoginInput from "../components/LoginInput";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function App() {
   const classes = useStyles();
   const [name, setName] = useState(localStorage.getItem("name") || "");
   let validName = name.trim();
+  const navigate = useNavigate();
 
   useEffect(() => {
     localStorage.setItem("name", name);
   }, [name]);
+
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.key === "Enter") {
+        navigate("/game");
+      }
+    };
+    document.addEventListener("keydown", handleKeyPress);
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  });
 
   function renderButton() {
     if (validName.length < 2) {
