@@ -1,21 +1,10 @@
 import React, { useState, useEffect } from "react";
-import NameHeading from "../components/NameHeading";
-
-import {
-  Container,
-  AppBar,
-  Toolbar,
-  Typography,
-  CssBaseline,
-  IconButton,
-  Button,
-  Stack,
-} from "@mui/material";
+import { Container, Button, Stack } from "@mui/material";
 import useStyles from "../styles";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import LoginInput from "../components/LoginInput";
 import { Link, useNavigate } from "react-router-dom";
+import TextInput from "../components/TextInput";
+import Navbar from "../components/Navbar";
+import Heading from "../components/Heading";
 
 function App() {
   const classes = useStyles();
@@ -39,46 +28,26 @@ function App() {
     };
   });
 
-  function renderButton() {
-    if (validName.length < 2) {
-      return <Button disabled>Submit</Button>;
-    } else {
-      return (
-        <Button
-          component={Link}
-          to="/game"
-          variant="contained"
-          sx={classes.subbutton}
-        >
-          Submit
-        </Button>
-      );
-    }
+  function assignName(event) {
+    return setName(event.target.value);
   }
 
   return (
     <>
-      <CssBaseline />
-      <AppBar position="static" sx={classes.appname}>
-        <Toolbar>
-          <LockOutlinedIcon />
-          <Typography sx={classes.toolbartext}>PasswordGame</Typography>
-          <IconButton
-            sx={{ marginLeft: "auto" }}
-            href="https://github.com/sabinaLukaszczyk/password-game"
-            target="_blank"
-          >
-            <GitHubIcon sx={{ color: "white" }} />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
+      <Navbar />
       <main>
         <div>
           <Container align="center">
-            <NameHeading />
+            <Heading text="Welcome to the password game!" />
             <Stack sx={classes.stack} spacing={1}>
-              <LoginInput setName={setName} />
-              {renderButton()}
+              <TextInput
+                handleChange={assignName}
+                sx={classes.inputName}
+                placeholder="What is your name?"
+                id="outlined-basic"
+                input={name || ""}
+              />
+              {renderButton(validName, classes)}
             </Stack>
           </Container>
         </div>
@@ -88,3 +57,20 @@ function App() {
 }
 
 export default App;
+
+function renderButton(validName, classes) {
+  if (validName.length < 2) {
+    return <Button disabled>Submit</Button>;
+  } else {
+    return (
+      <Button
+        component={Link}
+        to="/game"
+        variant="contained"
+        sx={classes.subbutton}
+      >
+        Submit
+      </Button>
+    );
+  }
+}

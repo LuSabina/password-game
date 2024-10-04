@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import PasswordHeading from "../components/PasswordHeading";
 import Condition from "../components/Condition";
 import { requirements } from "../components/Requirements";
 import { Container, Box } from "@mui/material";
 import useStyles from "../styles";
 import TextInput from "../components/TextInput";
 import Navbar from "../components/Navbar";
+import Heading from "../components/Heading";
 
 let doSort = false;
 
@@ -55,7 +55,7 @@ function Game() {
       <main>
         <div>
           <Container align="center">
-            <PasswordHeading />
+            <Heading text={`Hi, ${localStorage.getItem("name")}!`} />
             <TextInput
               handleChange={handleChange}
               sx={classes.input}

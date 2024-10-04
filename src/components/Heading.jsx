@@ -2,13 +2,13 @@ import React from "react";
 import { Typography } from "@mui/material";
 import useStyles from "../styles";
 
-function NameHeading() {
+function Heading({ text }) {
   const classes = useStyles();
   return (
     <Typography variant="h3" sx={classes.heading}>
-      Welcome to the password game!
+      {text}
     </Typography>
   );
 }
 
-export default NameHeading;
+export default Heading;
