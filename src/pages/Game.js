@@ -1,20 +1,11 @@
 import React, { useState, useEffect } from "react";
 import PasswordHeading from "../components/PasswordHeading";
-import Input from "../components/Input";
 import Condition from "../components/Condition";
 import { requirements } from "../components/Requirements";
-import {
-  Container,
-  Box,
-  AppBar,
-  Toolbar,
-  CssBaseline,
-  IconButton,
-  Button,
-} from "@mui/material";
+import { Container, Box } from "@mui/material";
 import useStyles from "../styles";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import TextInput from "../components/TextInput";
+import Navbar from "../components/Navbar";
 
 let doSort = false;
 
@@ -29,11 +20,6 @@ function Game() {
       const firstCondition = requirements.shift();
       setRequire([firstCondition]);
     }
-  }
-
-  function handleReload() {
-    localStorage.clear();
-    window.location.replace("/");
   }
 
   useEffect(() => {
@@ -58,37 +44,24 @@ function Game() {
       setRequire(newRequirements);
     }
   }, [password, require]);
+  function handleChange(event) {
+    setPassword(event.target.value);
+    changeState(event.target.value);
+  }
 
   return (
     <>
-      <CssBaseline />
-      <AppBar position="static" sx={classes.appname}>
-        <Toolbar>
-          <LockOutlinedIcon />
-          <Button
-            onClick={handleReload}
-            variant="text"
-            sx={classes.toolbartext}
-          >
-            PasswordGame
-          </Button>
-          <IconButton
-            sx={{ marginLeft: "auto" }}
-            href="https://github.com/sabinaLukaszczyk/password-game"
-            target="_blank"
-          >
-            <GitHubIcon sx={{ color: "white" }} />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
+      <Navbar />
       <main>
         <div>
           <Container align="center">
             <PasswordHeading />
-            <Input
-              input={password}
-              setInput={setPassword}
-              updateState={changeState}
+            <TextInput
+              handleChange={handleChange}
+              sx={classes.input}
+              label="Enter your password"
+              id="outlined-password-input"
+              input={password || ""}
             />
 
             {require.map((condition, id) => {
