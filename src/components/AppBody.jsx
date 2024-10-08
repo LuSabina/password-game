@@ -3,10 +3,10 @@ import useStyles from "../styles";
 import TextInput from "../components/TextInput";
 import Heading from "../components/Heading";
 import { Link } from "react-router-dom";
+import { checkIfNameIsValid } from "../utils";
 
 function AppBody({ name, setName }) {
   const classes = useStyles();
-  let validName = name.trim();
 
   const assignName = (event) => {
     return setName(event.target.value);
@@ -23,17 +23,15 @@ function AppBody({ name, setName }) {
           id="outlined-basic"
           input={name || ""}
         />
-        {renderButton(validName, classes)}
+        {renderButton(classes, name)}
       </Stack>
     </Container>
   );
 }
 export default AppBody;
 
-function renderButton(validName, classes) {
-  if (validName.length < 2) {
-    return <Button disabled>Submit</Button>;
-  } else {
+function renderButton(classes, name) {
+  if (checkIfNameIsValid(name)) {
     return (
       <Button
         component={Link}
@@ -44,5 +42,7 @@ function renderButton(validName, classes) {
         Submit
       </Button>
     );
+  } else {
+    return <Button disabled>Submit</Button>;
   }
 }

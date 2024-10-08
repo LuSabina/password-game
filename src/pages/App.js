@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import AppBody from "../components/AppBody";
+import { checkIfNameIsValid } from "../utils";
 
 function App() {
   const [name, setName] = useState(localStorage.getItem("name") || "");
@@ -13,7 +14,7 @@ function App() {
   }, [name]);
 
   useEffect(() => {
-    handleEnterButton(navigate);
+    handleEnterButton(navigate, name);
   });
 
   return (
@@ -26,9 +27,9 @@ function App() {
 
 export default App;
 
-function handleEnterButton(navigate) {
+function handleEnterButton(navigate, name) {
   const handleKeyPress = (event) => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && checkIfNameIsValid(name)) {
       navigate("/game");
     }
   };
