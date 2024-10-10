@@ -1,12 +1,13 @@
 const useStyles = () => ({
   appname: {
     //position: "relative",
-    height: "40px",
+    height: "60px",
     justifyContent: "center",
+    backgroundColor: "#6482AD",
   },
   toolbartext: {
     fontFamily: "Raleway",
-    fontSize: "15px",
+    fontSize: "20px",
     caretColor: "transparent",
     color: "white",
     textTransform: "lowercase",
@@ -27,9 +28,10 @@ const useStyles = () => ({
     fontFamily: "Raleway",
     caretColor: "transparent",
     color: "#3C3D37",
+    fontSize: "60px",
   },
   condition: {
-    width: "50%",
+    width: "40%",
     height: "40px",
     borderRadius: "4px",
     justifyContent: "center",
@@ -45,16 +47,25 @@ const useStyles = () => ({
   },
   subbutton: {
     width: "15%",
+    backgroundColor: "#7FA1C3",
   },
-
-  //   ifgreen: {
-  //     color: "#1A5319",
-  //     backgroundColor: "#80AF81",
-  //   },
-  //   ifred: {
-  //     color: "#A91D3A",
-  //     backgroundColor: "#C73659",
-  //   },
+  githubIcon: {
+    color: "white",
+    fontSize: "35px",
+  },
+  footer: {
+    width: "100%",
+    height: "50px",
+    backgroundColor: "#E2DAD6",
+    position: "fixed",
+    bottom: "0",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  footerText: {
+    color: "#3C3D37",
+  },
 });
 
 export default useStyles;

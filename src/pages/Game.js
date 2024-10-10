@@ -6,6 +6,7 @@ import useStyles from "../styles";
 import TextInput from "../components/TextInput";
 import Navbar from "../components/Navbar";
 import Heading from "../components/Heading";
+import Footer from "../components/Footer";
 
 let doSort = false;
 
@@ -14,40 +15,22 @@ function Game() {
   const [require, setRequire] = useState([]);
   const classes = useStyles();
 
-  function changeState(updatedPassword) {
+  const changeState = (updatedPassword) => {
     doSort = true;
     if (updatedPassword.length > 0 && require.length === 0) {
       const firstCondition = requirements.shift();
       setRequire([firstCondition]);
     }
-  }
+  };
 
-  useEffect(() => {
-    let newRequirements = require;
-    if (password.length > 0) {
-      let lastFulfilled = require[0];
-      let lastColor = lastFulfilled.color;
-
-      if (lastColor === "green" && requirements.length > 0) {
-        let newCondition = requirements.shift();
-        newRequirements = [newCondition, ...require];
-      }
-
-      if (doSort) {
-        newRequirements = [...newRequirements].sort((a, b) =>
-          b.color.localeCompare(a.color)
-        );
-
-        doSort = false;
-      }
-
-      setRequire(newRequirements);
-    }
-  }, [password, require]);
-  function handleChange(event) {
+  const handleChange = (event) => {
     setPassword(event.target.value);
     changeState(event.target.value);
-  }
+  };
+
+  useEffect(() => {
+    addNewConditions(password, require, setRequire);
+  }, [password, require]);
 
   return (
     <>
@@ -74,8 +57,37 @@ function Game() {
           </Container>
         </div>
       </main>
+      <Footer />
     </>
   );
 }
 
 export default Game;
+
+function addNewConditions(password, require, setRequire) {
+  let newRequirements = require;
+  if (password.length > 0) {
+    let lastFulfilled = require[0];
+    let lastColor = lastFulfilled.color;
+
+    if (lastColor === "green" && requirements.length > 0) {
+      let newCondition = requirements.shift();
+      newRequirements = [newCondition, ...require];
+    }
+
+    const sortedConditions = sortConditions(newRequirements);
+    setRequire(sortedConditions);
+  }
+}
+
+function sortConditions(newRequirements) {
+  if (doSort) {
+    const sortedArray = [...newRequirements].sort((a, b) =>
+      b.color.localeCompare(a.color)
+    );
+
+    doSort = false;
+    return sortedArray;
+  }
+  return newRequirements;
+}

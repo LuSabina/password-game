@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import AppBody from "../components/AppBody";
 import { checkIfNameIsValid } from "../utils";
+import Footer from "../components/Footer";
 
 function App() {
   const [name, setName] = useState(localStorage.getItem("name") || "");
@@ -21,6 +22,7 @@ function App() {
     <>
       <Navbar />
       <AppBody name={name} setName={setName} />
+      <Footer />
     </>
   );
 }

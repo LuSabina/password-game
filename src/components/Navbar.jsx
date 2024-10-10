@@ -29,7 +29,7 @@ function Navbar() {
             href="https://github.com/sabinaLukaszczyk/password-game"
             target="_blank"
           >
-            <GitHubIcon sx={{ color: "white" }} />
+            <GitHubIcon sx={classes.githubIcon} />
           </IconButton>
         </Toolbar>
       </AppBar>
