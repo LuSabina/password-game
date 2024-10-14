@@ -2,14 +2,24 @@ import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 
 export default function NotFoundPage() {
-  const style = [
-    {
+  const styles = {
+    container: {
       fontFamily: "Raleway",
       fontSize: "40px",
       textAlign: "center",
       caretColor: "transparent",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: "1rem",
     },
-    {
+    iframe: {
+      width: "50%",
+      height: "50%",
+      border: "none",
+    },
+
+    button: {
       backgroundColor: "#white",
       border: "1px solid #EEEEEE",
       padding: "1rem",
@@ -22,24 +32,20 @@ export default function NotFoundPage() {
       caretColor: "transparent",
       fontFamily: "Raleway",
     },
-  ];
+  };
 
   return (
-    <div style={style[0]}>
+    <div style={styles.container}>
       404 Not Found
       <br />
       <iframe
         title="title"
         src="https://giphy.com/embed/oRGXTJJvAOsKD1jVBr"
-        width="30%"
-        height="30%"
-        style={{
-          position: "absolute",
-        }}
+        style={styles.iframe}
       ></iframe>
       <br />
       <Link to="/">
-        <Button style={style[1]}>Go home!</Button>
+        <Button style={styles.button}>Go home!</Button>
       </Link>
     </div>
   );
