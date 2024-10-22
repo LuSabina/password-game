@@ -56,15 +56,19 @@ const useStyles = () => ({
   footer: {
     width: "100%",
     height: "50px",
-    backgroundColor: "#E2DAD6",
+    backgroundColor: "#7FA1C3",
     position: "fixed",
     bottom: "0",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
   },
   footerText: {
-    color: "#3C3D37",
+    color: "white",
+    fontFamily: "Raleway",
+    fontWeight: "700",
+  },
+  footerStack: {
+    alignItems: "center",
+    justifyContent: "space-between",
+    mx: 4,
   },
 });
 
