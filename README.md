@@ -6,11 +6,12 @@ Try it out -> [password game](https://password-game-blue.vercel.app/)
 ### Features
 
 - checking username length
-- adding conditions after previous one is green
-- sorting conditions to keep red ones at the top
-- restoring username from cache after page reload
-- reseting the game by click the logo
-- handling 404 error
+- adding conditions once the previous one is met
+- sorting conditions to keep unmet ones at the top
+- restoring the username from cache after a page reload
+- resetting the game by clicking the logo
+- handling 404 errors
+- displaying the weather in the footer
 
 ### ToDo
 
