@@ -39,7 +39,13 @@ function getWeather(city, country, apiKey, setCurrentWeather, setError) {
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiKey}&units=metric`
   )
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Could not fetch weather");
+      }
+      return response.json();
+    })
+
     .then((data) => setCurrentWeather(data))
-    .catch((error) => setError(error));
+    .catch((error) => setError(error.message));
 }
