@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import AppBody from "../components/AppBody";
 import { checkIfNameIsValid } from "../utils";
 import Footer from "../components/Footer";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [name, setName] = useState(localStorage.getItem("name") || "");
@@ -21,7 +22,11 @@ function App() {
   return (
     <>
       <Navbar />
-      <AppBody name={name} setName={setName} />
+      <Routes>
+        <Route path="/" element={<AppBody name={name} setName={setName} />}/>
+        
+      </Routes>
+      
       <Footer />
     </>
   );

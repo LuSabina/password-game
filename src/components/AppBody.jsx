@@ -2,15 +2,18 @@ import { Container, Button, Stack } from "@mui/material";
 import useStyles from "../styles";
 import TextInput from "../components/TextInput";
 import Heading from "../components/Heading";
-import { Link } from "react-router-dom";
+import {  Link } from "react-router-dom";
 import { checkIfNameIsValid } from "../utils";
 
-function AppBody({ name, setName }) {
+function AppBody({ name, setName}) {
   const classes = useStyles();
+  
 
   const assignName = (event) => {
     return setName(event.target.value);
   };
+
+  
 
   return (
     <Container align="center">
@@ -23,6 +26,7 @@ function AppBody({ name, setName }) {
           id="outlined-basic"
           input={name || ""}
         />
+        
         {renderButton(classes, name)}
       </Stack>
     </Container>
@@ -30,7 +34,7 @@ function AppBody({ name, setName }) {
 }
 export default AppBody;
 
-function renderButton(classes, name) {
+function renderButton(classes, name, handleClick) {
   if (checkIfNameIsValid(name)) {
     return (
       <Button
