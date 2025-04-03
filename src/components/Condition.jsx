@@ -5,8 +5,15 @@ function Condition({ password, condition }) {
 
   return (
     <>
-      <ul style={{ color: condition.color, paddingLeft: 0 }} key={condition.id}>
-        {condition.name}
+      <ul
+        style={{
+          color: condition.color,
+          paddingLeft: 0,
+          listStyleType: "none",
+        }}
+        key={condition.id}
+      >
+        <li>{condition.name}</li>
       </ul>
     </>
   );

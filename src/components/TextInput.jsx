@@ -4,6 +4,7 @@ import { TextField } from "@mui/material";
 function TextInput({ handleChange, input, label, placeholder, id, sx }) {
   return (
     <TextField
+      autoFocus
       onChange={handleChange}
       value={input}
       variant="outlined"
