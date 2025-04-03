@@ -15,7 +15,6 @@ Try it out -> [password game](https://password-game-blue.vercel.app/)
 
 ### ToDo
 
-- add tests
 - drawing conditions
 - animation after meeting all the conditions
 - save users in database
